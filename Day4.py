@@ -64,3 +64,5 @@ elif player == 2:
     print(items[player])
     print(f"Computer chose: \n {items[computer]}")
     print("You lose")
+else:
+  print("You typed an invalid number, you lose!")
