@@ -7,3 +7,5 @@ Day 2: Created a tip calculator
 Day 3: Created an Adventure Word Game
 
 Day 4: Created Rock, Paper, Scissor Game
+
+Day 5: Created a Password Generator
