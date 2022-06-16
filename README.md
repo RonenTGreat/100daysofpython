@@ -13,3 +13,5 @@ Day 5: Created a Password Generator
 Day 6: Solved problems on function using Reeborg's World
 
 Day 7: Created hangman game
+
+Day 8: Created a blind auction program
