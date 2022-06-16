@@ -12,8 +12,6 @@ def intro():
   name = input("What is your name?: ")
   bid = int(input("What's your bid? $"))
   bids[name] = bid
-  
-
 
 intro()
 
@@ -21,7 +19,7 @@ any_bidder = True
 while any_bidder:
   any = input("Are there any other bidders? Type 'yes' or 'no'. \n")
 
-  if any == 'yes':
+  if any.lower() == 'yes':
     system('CLS')
     intro()
   else:
@@ -32,4 +30,4 @@ for name in bids:
   if bids[name] > higher:
     higher = bids[name]
 
-print(f"The winner is {name} witha bid of ${higher}.")
+print(f"The winner is {name} with a bid of ${higher}.")
