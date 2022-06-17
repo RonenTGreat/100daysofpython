@@ -14,4 +14,8 @@ Day 6: Solved problems on function using Reeborg's World
 
 Day 7: Created hangman game
 
-Day 8: Created a blind auction program
+Day 8: Created a Caesar Cipher
+
+Day 9: Created a blind auction program
+
+Day 10: Created a simple calculator program 
