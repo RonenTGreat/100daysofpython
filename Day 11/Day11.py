@@ -7,7 +7,7 @@ def deal_card(cards):
 card = deal_card(cards)
 # print(card)
 
-user_cards = []
+user_cards = [1]
 computer_cards = []
 
 for times in range(0, 2):
@@ -17,18 +17,19 @@ print(user_cards)
 print(computer_cards)
 
 def calculate_score(player_score):
-  if (10 and 11) in player_score:
+  if sum(player_score) == 21 and len(player_score) == 2:
     return 0
-  else:
-    return sum(player_score)
+
+  for card in player_score:
+    if card == 11 and sum(player_score) > 21:
+      player_score.remove(card)
+      player_score.append(1)
+  return sum(player_score)
 
 player = calculate_score(user_cards)
 computer = calculate_score(computer_cards)
 print(player)
 print(computer)
-
-
-#Hint 8: Inside calculate_score() check for an 11 (ace). If the score is already over 21, remove the 11 and replace it with a 1. You might need to look up append() and remove().
 
 #Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.
 
