@@ -4,17 +4,6 @@ import random
 def deal_card(cards):
   return random.choice(cards)
 
-card = deal_card(cards)
-# print(card)
-
-user_cards = [1]
-computer_cards = []
-
-for times in range(0, 2):
-  user_cards.append(deal_card(cards))
-  computer_cards.append(deal_card(cards))
-print(user_cards)
-print(computer_cards)
 
 def calculate_score(player_score):
   if sum(player_score) == 21 and len(player_score) == 2:
@@ -26,12 +15,25 @@ def calculate_score(player_score):
       player_score.append(1)
   return sum(player_score)
 
-player = calculate_score(user_cards)
-computer = calculate_score(computer_cards)
-print(player)
-print(computer)
 
-#Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.
+user_cards = []
+computer_cards = []
+is_game_over = False
+
+for times in range(0, 2):
+  user_cards.append(deal_card(cards))
+  computer_cards.append(deal_card(cards))
+
+user_score = calculate_score(user_cards)
+computer_score = calculate_score(computer_cards)
+
+print(f"Your cards: {user_cards}, current score: {user_score}")
+print(f"Computer's first card: {computer_cards[0]}")
+
+
+if user_score == 0 or user_score > 21 or computer_score == 0:
+  is_game_over = True
+
 
 #Hint 10: If the game has not ended, ask the user if they want to draw another card. If yes, then use the deal_card() function to add another card to the user_cards List. If no, then the game has ended.
 
