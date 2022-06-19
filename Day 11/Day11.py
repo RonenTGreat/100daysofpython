@@ -24,27 +24,22 @@ for times in range(0, 2):
   user_cards.append(deal_card(cards))
   computer_cards.append(deal_card(cards))
 
-user_score = calculate_score(user_cards)
-computer_score = calculate_score(computer_cards)
+while not is_game_over:
+  user_score = calculate_score(user_cards)
+  computer_score = calculate_score(computer_cards)
 
-print(f"Your cards: {user_cards}, current score: {user_score}")
-print(f"Computer's first card: {computer_cards[0]}")
+  print(f"Your cards: {user_cards}, current score: {user_score}")
+  print(f"Computer's first card: {computer_cards[0]}")
 
 
-if user_score == 0 or user_score > 21 or computer_score == 0:
-  is_game_over = True
-else:
-  another_card = input("Type 'y' to get another card, type 'n' to pass: ").lower()
-  if another_card == 'y':
-    user_cards.append(deal_card(cards))
-  else:
+  if user_score == 0 or user_score > 21 or computer_score == 0:
     is_game_over = True
-
-
-
-#Hint 10: If the game has not ended, ask the user if they want to draw another card. If yes, then use the deal_card() function to add another card to the user_cards List. If no, then the game has ended.
-
-#Hint 11: The score will need to be rechecked with every new card drawn and the checks in Hint 9 need to be repeated until the game ends.
+  else:
+    another_card = input("Type 'y' to get another card, type 'n' to pass: ").lower()
+    if another_card == 'y':
+      user_cards.append(deal_card(cards))
+    else:
+      is_game_over = True
 
 #Hint 12: Once the user is done, it's time to let the computer play. The computer should keep drawing cards as long as it has a score less than 17.
 
