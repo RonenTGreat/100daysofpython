@@ -18,8 +18,10 @@ Day 8: Created a Caesar Cipher
 
 Day 9: Created a blind auction program
 
-Day 10: Created a simple calculator program 
+Day 10: Created a simple calculator program
 
 Day 11: Created a simple blackjack game
 
 Day 12: Created a guessing game
+
+Day 14: Created Higher Lower 
