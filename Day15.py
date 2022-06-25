@@ -107,6 +107,22 @@ elif coffee_choice == 'latte':
         profit += cost_latte
         print(f"Here is ${change} in change.")
         print("Here is your latte ☕️. Enjoy!")
-
+elif coffee_choice == 'cappuccino':
+    if money < cost_cappuccino:
+        print("Sorry that's not enough money. Money refunded.")
+    elif water < water_cappuccino:
+        print("Sorry there is not enough water.")
+    elif coffee < coffee_cappuccino:
+        print("Sorry there is not enough coffee.")
+    elif milk < milk_cappuccino:
+        print("Sorry there is not enough milk.")
+    elif money >= cost_cappuccino and water >= water_cappuccino and coffee >= coffee_cappuccino:
+        change = money - cost_cappuccino
+        resources["water"] = water - water_cappuccino
+        resources["coffee"] = coffee - coffee_cappuccino
+        profit += cost_cappuccino
+        print(f"Here is ${change} in change.")
+        print("Here is your latte ☕️. Enjoy!")
+    
 
 
