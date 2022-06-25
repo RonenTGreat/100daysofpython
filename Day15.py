@@ -71,9 +71,11 @@ number_of_dimes = int(input("how many dimes?: "))
 number_of_nickles = int(input("how many nickles?: "))
 number_of_pennies = int(input("how many pennies? "))
 
-money = (number_of_quarters * 0.25) + (number_of_dimes * 0.10) + (number_of_nickles * 0.50) + (number_of_pennies * 0.10)
+money = (number_of_quarters * 0.25) + (number_of_dimes * 0.10) + (number_of_nickles * 0.05) + (number_of_pennies * 0.01)
 print(money)
 print(cost_latte)
+
+is_running = True
 
 if coffee_choice == 'espresso':
     if money < cost_espresso:
@@ -86,11 +88,25 @@ if coffee_choice == 'espresso':
         change = money - cost_espresso
         resources["water"] = water - water_espresso
         resources["coffee"] = coffee - coffee_espresso
-        coffee
         profit += cost_espresso
         print(f"Here is ${change} in change.")
         print("Here is your latte ☕️. Enjoy!")
+elif coffee_choice == 'latte':
+    if money < cost_latte:
+        print("Sorry that's not enough money. Money refunded.")
+    elif water < water_latte:
+        print("Sorry there is not enough water.")
+    elif coffee < coffee_latte:
+        print("Sorry there is not enough coffee.")
+    elif milk < milk_latte:
+        print("Sorry there is not enough milk.")
+    elif money >= cost_latte and water >= water_latte and coffee >= coffee_latte:
+        change = money - cost_latte
+        resources["water"] = water - water_latte
+        resources["coffee"] = coffee - coffee_latte
+        profit += cost_latte
+        print(f"Here is ${change} in change.")
+        print("Here is your latte ☕️. Enjoy!")
 
-    
 
 
