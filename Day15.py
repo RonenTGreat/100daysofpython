@@ -1,6 +1,3 @@
-from importlib.resources import is_resource
-
-
 MENU = {
     "espresso": {
         "ingredients": {
