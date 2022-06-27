@@ -24,4 +24,8 @@ Day 11: Created a simple blackjack game
 
 Day 12: Created a guessing game
 
-Day 14: Created Higher Lower 
+Day 14: Created Higher Lower
+
+Day 15: Created coffee machine simulator(functions)
+
+Day 16: Created coffee machine simulator(classes)
