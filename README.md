@@ -31,3 +31,5 @@ Day 15: Created coffee machine simulator(functions)
 Day 16: Created coffee machine simulator(classes)
 
 Day 17: Created a quiz app
+
+Day 18: Created Herist Paint 
