@@ -8,23 +8,14 @@ screen.bgcolor("black")
 screen.title("Snake Game")
 screen.tracer(0)
 
-snake = Snake()
 
 game_is_on = True
+
+snake = Snake()
 
 while game_is_on:
     screen.update()
     time.sleep(0.1)
-
     snake.move()
-
-
-
-
-
-
-
-
-
 
 screen.exitonclick()
