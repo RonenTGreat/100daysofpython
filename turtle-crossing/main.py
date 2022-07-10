@@ -10,6 +10,9 @@ screen.tracer(0)
 
 player = Player()
 
+screen.listen()
+screen.onkey(player.move, "Up")
+
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
