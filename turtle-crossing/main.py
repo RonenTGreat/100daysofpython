@@ -1,4 +1,5 @@
 import time
+import turtle
 from turtle import Screen
 from player import Player
 from car_manager import CarManager
@@ -20,3 +21,11 @@ while game_is_on:
     screen.update()
     cars.create_car()
     cars.move_cars()
+
+    # Detect turtle collision with car
+    for car in cars.all_cars:
+        if player.distance(car) < 20:
+            game_is_on = False
+
+
+screen.exitonclick()
