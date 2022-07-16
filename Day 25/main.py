@@ -35,7 +35,7 @@
 
 # monday = data[data.day == 'Monday']
 # # print(monday.condition)
-#
+
 # cel_to_feh = (int(monday.temp) * (9/5) + 32)
 # print(cel_to_feh)
 

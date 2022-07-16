@@ -14,7 +14,7 @@ location.penup()
 
 data = pandas.read_csv("50_states.csv")
 
-state = data["state"].to_list()
+states = data["state"].to_list()
 
 correct_guess = []
 
@@ -23,14 +23,11 @@ while len(correct_guess) < 50:
     answer_state = screen.textinput(title=f"{len(correct_guess)}/50 Guess the State",
                                     prompt="What's another state's name?").title()
     if answer_state == "Exit":
-        missing_states = []
-        for state in state:
-            if state not in correct_guess:
-                missing_states.append(state)
+        missing_states = [state for state in states if state not in correct_guess]
         learn = pandas.DataFrame(missing_states)
         learn.to_csv("states_to_learn.csv")
         break
-    if answer_state in state:
+    if answer_state in states:
         correct_guess.append(answer_state)
         x_cor = int(data[data.state == answer_state.title()].x)
         y_cor = int(data[data.state == answer_state.title()].y)
