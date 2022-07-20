@@ -27,12 +27,17 @@ canvas.create_image(100, 112, image=tomato_img)
 canvas.create_text(100, 130, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
 canvas.grid(column=1, row=2)
 
+# Heading(Timer)
 heading = Label(text="Timer", bg=YELLOW, fg=GREEN, font=(FONT_NAME, 30, "bold"))
 heading.grid(column=1, row=0)
 
+# Start Button
+start_button = Button(text="Start")
+start_button.grid(column=0, row=3)
 
-
-
+# Reset Button
+reset_button = Button(text="Reset")
+reset_button.grid(column=2, row=3)
 
 
 window.mainloop()
