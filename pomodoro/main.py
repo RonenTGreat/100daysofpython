@@ -28,16 +28,20 @@ canvas.create_text(100, 130, text="00:00", fill="white", font=(FONT_NAME, 35, "b
 canvas.grid(column=1, row=2)
 
 # Heading(Timer)
-heading = Label(text="Timer", bg=YELLOW, fg=GREEN, font=(FONT_NAME, 30, "bold"))
+heading = Label(text="Timer", bg=YELLOW, fg=GREEN, font=(FONT_NAME, 50, "bold"))
 heading.grid(column=1, row=0)
 
 # Start Button
-start_button = Button(text="Start")
+start_button = Button(text="Start", highlightthickness=0)
 start_button.grid(column=0, row=3)
 
 # Reset Button
-reset_button = Button(text="Reset")
+reset_button = Button(text="Reset", highlightthickness=0)
 reset_button.grid(column=2, row=3)
+
+# Check mark
+check = Label(text="✔", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 20))
+check.grid(column=1, row=3)
 
 
 window.mainloop()
