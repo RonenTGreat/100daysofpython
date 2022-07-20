@@ -1,6 +1,7 @@
 import turtle
 import pandas
 screen = turtle.Screen()
+screen.setup(700, 700)
 screen.title("Ghana Region Game")
 image = "blank_ghana_regional_map.gif"
 screen.addshape(image)
@@ -28,4 +29,3 @@ while len(correct_guess) < 16:
         correct_guess.append(answer)
         location.goto(int(data[data.region == answer.title()].x), int(data[data.region == answer.title()].y))
         location.write(answer)
-
