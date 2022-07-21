@@ -7,7 +7,7 @@ GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
 WORK_MIN = 1
-SHORT_BREAK_MIN = 5
+SHORT_BREAK_MIN = 1
 LONG_BREAK_MIN = 20
 reps = 0
 
@@ -50,6 +50,12 @@ def count_down(count):
         window.after(1000, count_down, count - 1)
     else:
         start_timer()
+        marks = ""
+        work_session = math.floor(reps/2)
+        for _ in range(work_session):
+            marks += "✔"
+        check.config(text=marks)
+
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -79,7 +85,7 @@ reset_button = Button(text="Reset", highlightthickness=0)
 reset_button.grid(column=2, row=3)
 
 # Check mark
-check = Label(text="✔", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 20))
+check = Label(fg=GREEN, bg=YELLOW, font=(FONT_NAME, 20))
 check.grid(column=1, row=3)
 
 
