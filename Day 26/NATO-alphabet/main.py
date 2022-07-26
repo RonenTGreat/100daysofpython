@@ -27,7 +27,13 @@ NATO = pandas.read_csv("nato_phonetic_alphabet.csv")
 nato_phonetic_dict = {row.letter: row.code for (index, row) in NATO.iterrows()}
 print(nato_phonetic_dict)
 
-
-word = input("Enter a word: ").upper()
-result = [nato_phonetic_dict[letter] for letter in word]
-print(result)
+is_error = True
+while is_error:
+    word = input("Enter a word: ").upper()
+    try:
+        result = [nato_phonetic_dict[letter] for letter in word]
+        is_error = False
+    except KeyError:
+        print("Sorry, only letters in the alphabet please.")
+    else:
+        print(result)
