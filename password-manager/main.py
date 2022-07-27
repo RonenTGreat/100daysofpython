@@ -61,6 +61,16 @@ def save():
             website_input.delete(0, END)
             email_input.delete(0, END)
             password_input.delete(0, END)
+# ---------------------------- FIND PASSWORD ------------------------------- #
+def find_password():
+    website = website_input.get()
+    with open("data.json") as data_file:
+        data = json.load(data_file)
+        if website in data:
+            email = data[website]["email"]
+            passwrod = data[website]["password"]
+            messagebox.showinfo(title=website, message=f"Email: {email} \nPassword: {passwrod}")
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
@@ -101,7 +111,7 @@ add_button = Button(text="Add", width=30, command=save)
 add_button.grid(column=1, row=4, columnspan=2)
 
 # Search Button
-search_button = Button(text="search", width=15)
+search_button = Button(text="search", width=15, command=find_password)
 search_button.grid(column=2, row=1)
 
 window.mainloop()
