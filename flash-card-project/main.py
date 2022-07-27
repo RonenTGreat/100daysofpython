@@ -20,6 +20,10 @@ wrong_img = PhotoImage(file="./images/wrong.png")
 wrong_button = Button(image=wrong_img, highlightthickness=0)
 wrong_button.grid(column=0, row=1)
 
+# Button Right
+right_img = PhotoImage(file="./images/right.png")
+right_button = Button(image=right_img, highlightthickness=0)
+right_button.grid(column=1, row=1)
 
 
 
