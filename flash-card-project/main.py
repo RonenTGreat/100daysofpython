@@ -15,6 +15,12 @@ title_text = canvas.create_text(400, 150, text="Title", fill="black", font=(FONT
 word_text = canvas.create_text(400, 263, text="Word", fill="black", font=(FONT_NAME, 60, "bold"))
 canvas.grid(column=0, row=0, columnspan=2)
 
+# Button Wrong
+wrong_img = PhotoImage(file="./images/wrong.png")
+wrong_button = Button(image=wrong_img, highlightthickness=0)
+wrong_button.grid(column=0, row=1)
+
+
 
 
 
