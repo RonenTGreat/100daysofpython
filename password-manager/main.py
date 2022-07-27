@@ -36,15 +36,28 @@ def save():
     new_data = {
         data_website: {
             "email": data_email,
-            "password": data_password
+            "password": data_password,
         }
     }
 
     if len(data_password) <= 0 or len(data_website) <= 0 or len(data_email) <= 0:
         messagebox.showinfo(title="Oops", message="Please don't leave any fields empty.")
     else:
-        with open("data.json", "w") as data_file:
-            json.dump(new_data, data_file, indent=4)
+        try:
+            with open("data.json", "r") as data_file:
+                # Reading old data
+                data = json.load(data_file)
+        except FileNotFoundError:
+            with open("data.json", "w") as data_file:
+                json.dump(new_data, data_file, indent=4)
+        else:
+            # Updating old data with new data
+            data.update(new_data)
+
+            with open("data.json", "w") as data_file:
+                # Saving updated data
+                json.dump(data, data_file, indent=4)
+        finally:
             website_input.delete(0, END)
             email_input.delete(0, END)
             password_input.delete(0, END)
@@ -87,5 +100,7 @@ generate_button.grid(column=2, row=3)
 # Add Button
 add_button = Button(text="Add", width=30, command=save)
 add_button.grid(column=1, row=4, columnspan=2)
+
+
 
 window.mainloop()
