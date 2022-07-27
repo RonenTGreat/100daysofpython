@@ -61,16 +61,23 @@ def save():
             website_input.delete(0, END)
             email_input.delete(0, END)
             password_input.delete(0, END)
+
+
 # ---------------------------- FIND PASSWORD ------------------------------- #
 def find_password():
-    website = website_input.get()
-    with open("data.json") as data_file:
-        data = json.load(data_file)
+    try:
+        website = website_input.get()
+        with open("data.json") as data_file:
+            data = json.load(data_file)
+    except FileNotFoundError:
+        messagebox.showinfo(title="Error", message="No Data File Found")
+    else:
         if website in data:
             email = data[website]["email"]
-            passwrod = data[website]["password"]
-            messagebox.showinfo(title=website, message=f"Email: {email} \nPassword: {passwrod}")
-
+            password = data[website]["password"]
+            messagebox.showinfo(title=website, message=f"Email: {email} \nPassword: {password}")
+        else:
+            messagebox.showinfo(title="Error", message=f"No details for {website} exists.")
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
