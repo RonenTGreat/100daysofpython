@@ -11,11 +11,15 @@ current_card = {}
 
 # ----------------------------------------GENERATE WORD-------------------------------------
 def generate_word():
-    global current_card
+    global current_card, flip_timer
+    window.after_cancel(flip_timer)
     current_card = random.choice(words)
     word = current_card["French"]
-    canvas.itemconfig(word_text, text=word)
-    canvas.itemconfig(title_text, text="French")
+    canvas.itemconfig(word_text, text=word, fill="black")
+    canvas.itemconfig(title_text, text="French", fill="black")
+    canvas.itemconfig(card_background, image=card_front_img)
+    flip_timer = window.after(3000, func=flip_card)
+
 
 # ----------------------------------------FLIP CARD-------------------------------------
 def flip_card():
@@ -31,7 +35,7 @@ window = Tk()
 window.title("Flashy")
 window.config(padx=50, pady=50, bg=BACKGROUND_COLOR)
 
-window.after(3000, func=flip_card)
+flip_timer = window.after(3000, func=flip_card)
 
 canvas = Canvas(width=800, height=526, bg=BACKGROUND_COLOR, highlightthickness=0)
 card_back_img = PhotoImage(file="./images/card_back.png")
