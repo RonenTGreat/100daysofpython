@@ -4,16 +4,24 @@ import random
 BACKGROUND_COLOR = "#B1DDC6"
 FONT_NAME = "Ariel"
 
+data = pandas.read_csv("data/french_words.csv")
+words = data.to_dict(orient="records")
+current_card = {}
+
 
 # ----------------------------------------GENERATE WORD-------------------------------------
 def generate_word():
-    data = pandas.read_csv("data/french_words.csv")
-    words = data.to_dict(orient="records")
+    global current_card
     current_card = random.choice(words)
     word = current_card["French"]
 
     canvas.itemconfig(word_text, text=word)
     canvas.itemconfig(title_text, text="French")
+
+# ----------------------------------------FLIP CARD-------------------------------------
+def flip_card():
+    canvas.itemconfig(title_text, text="English")
+    canvas.itemconfig(word_text, text=current_card["English"])
 
 
 
@@ -21,6 +29,8 @@ def generate_word():
 window = Tk()
 window.title("Flashy")
 window.config(padx=50, pady=50, bg=BACKGROUND_COLOR)
+
+window.after(3000, func=flip_card)
 
 canvas = Canvas(width=800, height=526, bg=BACKGROUND_COLOR, highlightthickness=0)
 card_front_img = PhotoImage(file="./images/card_front.png")
