@@ -3,17 +3,22 @@ import pandas
 import random
 BACKGROUND_COLOR = "#B1DDC6"
 FONT_NAME = "Ariel"
-
-data = pandas.read_csv("data/french_words.csv")
-words = data.to_dict(orient="records")
 current_card = {}
+to_learn = {}
+try:
+    data = pandas.read_csv("data/words_to_learn.csv")
+except FileNotFoundError:
+    original_data = pandas.read_csv("data/french_words.csv")
+    to_learn = original_data.to_dict(orient="records")
+else:
+    to_learn = data.to_dict(orient="records")
 
 
 # ----------------------------------------GENERATE WORD-------------------------------------
 def generate_word():
     global current_card, flip_timer
     window.after_cancel(flip_timer)
-    current_card = random.choice(words)
+    current_card = random.choice(to_learn)
     word = current_card["French"]
     canvas.itemconfig(word_text, text=word, fill="black")
     canvas.itemconfig(title_text, text="French", fill="black")
@@ -27,6 +32,13 @@ def flip_card():
     canvas.itemconfig(word_text, text=current_card["English"], fill="white")
     canvas.itemconfig(card_background, image=card_back_img)
 
+def is_known():
+    to_learn.remove(current_card)
+
+    data = pandas.DataFrame(to_learn)
+    data.to_csv("data/words_to_learn.csv", index=False)
+
+    generate_word()
 
 
 
@@ -52,7 +64,7 @@ wrong_button.grid(column=0, row=1)
 
 # Button Right
 right_img = PhotoImage(file="./images/right.png")
-right_button = Button(image=right_img, command=generate_word, highlightthickness=0)
+right_button = Button(image=right_img, command=is_known, highlightthickness=0)
 right_button.grid(column=1, row=1)
 generate_word()
 
