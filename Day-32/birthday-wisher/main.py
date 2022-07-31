@@ -1,6 +1,10 @@
+import pandas
+
 today = (7, 31)
 
 # HINT 2: Use pandas to read the birthdays.csv
+data = pandas.read_csv("./birthdays.csv")
+print(data)
 
 # HINT 3: Use dictionary comprehension to create a dictionary from birthday.csv that is formated like this:
 # birthdays_dict = {
