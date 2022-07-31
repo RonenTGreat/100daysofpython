@@ -9,7 +9,7 @@ with open("./quotes.txt") as file_data:
     quotes = file_data.readlines()
     quote = random.choice(quotes)
 
-    if day_of_week == 5:
+    if day_of_week == 6:
         my_email = "ronenh53@gmail.com"
         my_password = "werilnphzbagjsjt"
         with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
@@ -17,6 +17,7 @@ with open("./quotes.txt") as file_data:
             connection.login(user=my_email, password=my_password)
             connection.sendmail(from_addr=my_email,
                                 to_addrs="ronenhammond@gmail.com",
-                                msg=f"Subject:Motivational Quotes \n\n {quote}")
+                                msg=f"Subject:Motivational Quotes \n\n{quote}"
+                                )
 
 
