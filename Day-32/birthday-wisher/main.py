@@ -1,13 +1,4 @@
-##################### Normal Starting Project ######################
-
-# 1. Update the birthdays.csv with your friends & family's details. 
-# HINT: Make sure one of the entries matches today's date for testing purposes. e.g.
-#name,email,year,month,day
-#YourName,your_own@email.com,today_year,today_month,today_day
-
-# 2. Check if today matches a birthday in the birthdays.csv
-# HINT 1: Create a tuple from today's month and day using datetime. e.g.
-# today = (today_month, today_day)
+today = (7, 31)
 
 # HINT 2: Use pandas to read the birthdays.csv
 
