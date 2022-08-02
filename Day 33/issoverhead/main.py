@@ -2,9 +2,14 @@ import smtplib
 import time
 import requests
 from datetime import datetime
+from dotenv import load_dotenv
+import os
 
-MY_EMAIL = ""
-MY_PASSWORD = ""
+load_dotenv()
+
+
+MY_EMAIL = os.getenv("EMAIL")
+MY_PASSWORD = os.getenv("PASSWORD")
 MY_LAT = 5.562410
 MY_LONG = -0.151210
 
@@ -52,7 +57,3 @@ while True:
             to_addrs=MY_EMAIL,
             msg="Subject: Look Up👆🏾\n\nThe ISS is above you in the sky."
         )
-# If the ISS is close to my current position
-# and it is currently dark
-# Then send me an email to tell me to look up.
-# BONUS: run the code every 60 seconds.
