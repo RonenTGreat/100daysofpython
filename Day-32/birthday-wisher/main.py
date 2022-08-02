@@ -2,6 +2,10 @@ import pandas
 import datetime as dt
 import random
 import smtplib
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 now = dt.datetime.now()
 today = (now.month, now.day)
@@ -20,8 +24,8 @@ if today in birthdays_dict:
         contents = letter.read()
         contents = contents.replace("[NAME]", birthday_person["name"])
 
-    my_email = "ronenh53@gmail.com"
-    my_password = "werilnphzbagjsjt"
+    my_email = os.getenv("EMAIL")
+    my_password = os.getenv("PASSWORD")
 
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()
