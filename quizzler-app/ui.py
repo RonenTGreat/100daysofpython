@@ -18,8 +18,8 @@ class QuizInterface:
         self.canvas.grid(column=0, row=1, columnspan=2, pady=50)
 
         # Score
-        self.score = Label(text='Score: 0', fg=THEME_COLOR)
-        self.score.grid(column=1, row=0)
+        self.score_label = Label(text=f'Score: {self.score}', fg=THEME_COLOR)
+        self.score_label.grid(column=1, row=0)
 
         # False Button
         false_img = PhotoImage(file='./images/false.png')
@@ -36,11 +36,21 @@ class QuizInterface:
         self.window.mainloop()
 
     def get_next_question(self):
+        self.canvas.config(bg='white')
+        self.score_label.confige(text=f"Score: {self.quiz.score}")
         q_text = self.quiz.next_question()
         self.canvas.itemconfig(self.question_body, text=q_text)
 
     def true_pressed(self):
-        self.quiz.check_answer("True")
+        self.give_feedback(self.quiz.check_answer("True"))
 
     def false_pressed(self):
-        self.quiz.check_answer("False")
+        self.give_feedback(self.quiz.check_answer("False"))
+
+    def give_feedback(self, is_right):
+        if is_right:
+            self.canvas.config(bg='green')
+
+        else:
+            self.canvas.config(bg='red')
+        self.window.after(1000, self.get_next_question)
