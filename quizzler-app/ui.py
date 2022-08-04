@@ -18,7 +18,7 @@ class QuizInterface:
         self.canvas.grid(column=0, row=1, columnspan=2, pady=50)
 
         # Score
-        self.score_label = Label(text=f'Score: {self.score}', fg=THEME_COLOR)
+        self.score_label = Label(text=f'Score: {self.quiz.score}', fg=THEME_COLOR)
         self.score_label.grid(column=1, row=0)
 
         # False Button
@@ -37,9 +37,14 @@ class QuizInterface:
 
     def get_next_question(self):
         self.canvas.config(bg='white')
-        self.score_label.confige(text=f"Score: {self.quiz.score}")
-        q_text = self.quiz.next_question()
-        self.canvas.itemconfig(self.question_body, text=q_text)
+        if self.quiz.still_has_questions():
+            self.score_label.config(text=f"Score: {self.quiz.score}")
+            q_text = self.quiz.next_question()
+            self.canvas.itemconfig(self.question_body, text=q_text)
+        else:
+            self.canvas.itemconfig(self.question_body, text="You have reached the end of the quiz.")
+            self.true_button.config(state="disabled")
+            self.false_button.config(state="disabled")
 
     def true_pressed(self):
         self.give_feedback(self.quiz.check_answer("True"))
