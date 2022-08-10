@@ -19,9 +19,10 @@ stock_parameters = {
 }
 
 news_parameters = {
-    "q": COMPANY_NAME,
+    "qinTitle": COMPANY_NAME,
     "from": "2022-07-10",
     "sortBy": "publishedAt",
+    "language": "en",
     "apiKey": news_api_key
 }
 
@@ -48,8 +49,9 @@ print(percentage)
 if percentage > .5:
     news_response = requests.get(url=NEWS_ENDPOINT, params=news_parameters)
     news_response.raise_for_status()
-    news_data = news_response.json()['articles'][0]
-    print(news_data)
+    news_data = news_response.json()['articles']
+    articles = news_data[:3]
+    print(articles)
 
 #TODO 7. - Use Python slice operator to create a list that contains the first 3 articles. Hint: https://stackoverflow.com/questions/509211/understanding-slice-notation
 
