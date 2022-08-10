@@ -4,20 +4,27 @@ import os
 
 load_dotenv()
 api_key = os.getenv('api_key')
+news_api_key = os.getenv("news_api_key")
 STOCK_NAME = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 
 STOCK_ENDPOINT = "https://www.alphavantage.co/query"
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
 
-    ## STEP 1: Use https://www.alphavantage.co/documentation/#daily
-# When stock price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
 
 stock_parameters = {
     "function": "TIME_SERIES_DAILY",
     "symbol": STOCK_NAME,
     "apikey": api_key
 }
+
+news_parameters = {
+    "q": COMPANY_NAME,
+    "from": "2022-07-10",
+    "sortBy": "publishedAt",
+    "apiKey": news_api_key
+}
+
 response = requests.get(url=STOCK_ENDPOINT, params=stock_parameters)
 response.raise_for_status()
 data = response.json()["Time Series (Daily)"]
@@ -38,15 +45,11 @@ print(difference_closing_price)
 percentage = (difference_closing_price/float(yesterday_closing_price)) * 100
 print(percentage)
 
-#TODO 5. - If TODO4 percentage is greater than 5 then print("Get News").
-
 if percentage > .5:
-    print("Get News")
-
-    ## STEP 2: https://newsapi.org/ 
-    # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
-
-#TODO 6. - Instead of printing ("Get News"), use the News API to get articles related to the COMPANY_NAME.
+    news_response = requests.get(url=NEWS_ENDPOINT, params=news_parameters)
+    news_response.raise_for_status()
+    news_data = news_response.json()['articles'][0]
+    print(news_data)
 
 #TODO 7. - Use Python slice operator to create a list that contains the first 3 articles. Hint: https://stackoverflow.com/questions/509211/understanding-slice-notation
 
