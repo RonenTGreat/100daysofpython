@@ -51,15 +51,11 @@ if percentage > .5:
     news_response.raise_for_status()
     news_data = news_response.json()['articles']
     articles = news_data[:3]
-    print(articles)
 
-#TODO 7. - Use Python slice operator to create a list that contains the first 3 articles. Hint: https://stackoverflow.com/questions/509211/understanding-slice-notation
+    formatted_articles = [f"Headline: {article['title']}, \nBrief: {article['description']}" for article in articles]
+    print(formatted_articles)
 
 
-    ## STEP 3: Use twilio.com/docs/sms/quickstart/python
-    #to send a separate message with each article's title and description to your phone number. 
-
-#TODO 8. - Create a new list of the first 3 article's headline and description using list comprehension.
 
 #TODO 9. - Send each article as a separate message via Twilio. 
 
