@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 
 USERNAME = "ronenthegreat"
 TOKEN = "eihidunijdoiidnife09udy"
@@ -32,10 +33,10 @@ headers = {
 
 post_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/graph1"
 
+today = datetime(year=2022, month=8, day=14)
 post_config = {
-    "date": "20220815",
-    "quantity": "0.5"
+    "date": today.strftime("%Y%m%d"),
+    "quantity": "3"
 }
-
-response = requests.post(url=post_endpoint, json=post_config, headers=headers)
-print(response.text)
+# response = requests.post(url=post_endpoint, json=post_config, headers=headers)
+# print(response.text)
