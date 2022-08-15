@@ -40,3 +40,12 @@ post_config = {
 }
 # response = requests.post(url=post_endpoint, json=post_config, headers=headers)
 # print(response.text)
+
+update_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/graph1/20220814"
+
+update_data = {
+    "quantity": "1"
+}
+
+response = requests.put(url=update_endpoint, json=update_data, headers=headers)
+print(response.text)
