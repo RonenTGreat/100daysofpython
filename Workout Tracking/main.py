@@ -16,6 +16,8 @@ sheet_endpoint = "https://api.sheety.co/bacad1c9188a01ac0462d5ad836c9089/myWorko
 app_id = os.getenv("APP_ID")
 app_key = os.getenv("API_KEY")
 
+
+
 user_exercise = input("Tell me which exercises did: ")
 
 post_query = {
