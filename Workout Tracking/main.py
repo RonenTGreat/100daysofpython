@@ -15,6 +15,9 @@ sheet_endpoint = "https://api.sheety.co/bacad1c9188a01ac0462d5ad836c9089/myWorko
 
 app_id = os.getenv("APP_ID")
 app_key = os.getenv("API_KEY")
+user = os.getenv("USER")
+password = os.getenv("PASSWORD")
+
 
 
 
@@ -50,5 +53,5 @@ for exercise in exercise_data["exercises"]:
         }
     }
 
-    response_exercise = requests.post(url=sheet_endpoint, json=sheet_input, auth=("ronen", "bnVsbDpudWxs"))
+    response_exercise = requests.post(url=sheet_endpoint, json=sheet_input, auth=(user, password))
     print(response_exercise.text)
