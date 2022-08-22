@@ -1,5 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+client_id = os.getenv('CLIENT_ID')
+client_secret = os.getenv('CLIENT_SECRET')
 
 year = input("Which year do you want to travel to? Type the date in this format YYYY-MM-DD: ")
 
