@@ -1,3 +1,6 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+
 chrome_driver_path = r"C:\Development\chromedriver"
-driver = webdriver.Chrome(executable_path=chrome_driver_path)
+service = Service(chrome_driver_path)
+driver = webdriver.Chrome(service=service)
