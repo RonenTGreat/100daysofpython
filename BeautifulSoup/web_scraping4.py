@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import re
+
 search_term = input("What product do you want to search for? ")
 
 url = f"https://www.newegg.ca/p/pl?d={search_term}&N=4131"
@@ -21,7 +22,7 @@ for page in range(1, pages + 1):
     items = div.find_all(text=re.compile(search_term))
 
     for item in items:
-        parent = item .parent
+        parent = item.parent
         if parent.name != "a":
             continue
         link = parent["href"]
