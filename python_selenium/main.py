@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.service import Service
 chrome_driver_path = r"C:\Development\chromedriver"
 service = Service(chrome_driver_path)
 driver = webdriver.Chrome(service=service)
-driver.get("https://www.ronenhammond.me")
+driver.get("https://www.techwithtim.net/")
 driver.implicitly_wait(5)
 my_element = driver.find_element(By.CLASS_NAME, "cta-resume")
 my_element.click()
