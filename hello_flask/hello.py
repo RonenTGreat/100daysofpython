@@ -23,10 +23,12 @@ def resume():
         '<p>Academic Standing: Second Upper</p>'
         '<p>Relevant Courses: Introduction to Computer Science, Programming Fundamentals, Programming I, Introduction t'
         'oEconomics, Mathematics for IT Professionals, Date Structures and Algorithms, Office Productivity Tools, Software Engineering, Multimedia and Web Development</p>'
-        
-
         "</div>"
     )
 
+@app.route("/<name>")
+def greet(name):
+    return f"Hello {name}"
+
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
