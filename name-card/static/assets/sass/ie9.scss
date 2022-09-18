@@ -1,0 +1,56 @@
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/skel';
+
+/*
+	Identity by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+/* Basic */
+
+	body {
+		background-image:		url('../../../../../../Tutorials(Videos)/[FreeCourseSite.com] Udemy - 100 Days of Code The Complete Python Pro Bootcamp for 2022/56 Day 56 - Intermediate+ Rendering HTML_Static files and Using Website Templates/462 html5up-identity/html5up-identity/images/bg.jpg');
+		background-repeat:		no-repeat;
+		background-size:		cover;
+		background-position:	bottom center;
+		background-attachment:	fixed;
+
+		&:after {
+			display: none;
+		}
+	}
+
+/* List */
+
+	ul {
+		&.icons {
+			li {
+				a {
+					&:before {
+						color: _palette(border);
+					}
+
+					&:hover {
+						&:before {
+							color: _palette(highlight);
+						}
+					}
+				}
+			}
+		}
+	}
+
+/* Wrapper */
+
+	#wrapper {
+		text-align: center;
+	}
+
+/* Main */
+
+	#main {
+		display: inline-block;
+	}
