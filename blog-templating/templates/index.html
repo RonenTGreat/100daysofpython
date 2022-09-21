@@ -11,20 +11,15 @@
     <div class="top">
         <div class="title"><h1>My Blog</h1></div>
     </div>
+    {% for blog in all_blogs: %}
     <div class="content">
         <div class="card">
-            <h2>Just a blog post</h2>
-            <p class="text">Lorem ipsum dolor sit </p>
-            <a href="#">Read</a>
+            <h2>{{ blog["title"] }}</h2>
+            <p class="text">{{ blog["subtitle"] }}</p>
+            <a href="{{ url_for('blogs', num=blog['id']) }}">Read</a>
         </div>
     </div>
-    <div class="content">
-        <div class="card">
-            <h2>Another blog post</h2>
-            <p class="text">Lorem ipsum dolor sit </p>
-            <a href="#">Read</a>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 </body>
 <footer>

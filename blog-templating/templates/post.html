@@ -10,12 +10,17 @@
 <div class="wrapper">
     <div class="top">
         <div class="title"><h1>My Blog</h1></div>
-           </div>
+    </div>
+    {% for blog in all_blogs: %}
+        {% if blog["id"] == num: %}
         <div class="content">
             <div class="card">
-                <h2>Title</h2>
-                <p>Post Body</p>
+                <h2>{{ blog['title'] }}</h2>
+                <h3>{{ blog['subtitle'] }}</h3>
+                <p>{{ blog['body'] }}</p>
             </div>
+        {% endif %}
+    {% endfor %}
 
     </div>
 </div>
